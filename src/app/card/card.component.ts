@@ -1,25 +1,41 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Product } from '../_models/product';
 import { CommonModule } from '@angular/common';
+import { ProductserviceService } from '../_service/productservice.service';
+import { Router } from '@angular/router';
+import { CartService } from '../_service/cart.service';
+import { FashionwearComponent } from "../fashionwear/fashionwear.component";
+
+
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FashionwearComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
-  productList: Product[] = [
-    {
-      imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiT7LZcq1hTDdUF1JcknRHm2WuNSFhxUYlkA&s',
-      title: 'Formal Shirts',
-      price: '550'
-    },
-    {
-      imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV7NXTdelqui3GCVO59a36IlpgJ5S1i5498g&s',
-      title: 'Sleeves',
-      price: '150'
-    }
-  ]
+
+
+  router = inject(Router)
+  product = inject(ProductserviceService)
+  cart = inject(CartService)
+
+  productList: Product[] = [{
+    id: '',
+    imageURL: '',
+    price: '',
+    title: ''
+  }]
+  constructor() {
+    this.productList = this.product.getProducts()
+    console.log('product', this.productList)
+  }
+
+  addCart(product: any) {
+    this.router.navigateByUrl('cart')
+    this.cart.addtoCart(product)
+  }
+
 }

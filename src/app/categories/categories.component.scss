@@ -1,0 +1,17 @@
+.card{
+   .card_content{
+    position: relative;
+
+    &_icon{
+        position: absolute;
+        top: 70%;
+        right: 35%;
+    }
+   }
+}
+
+@media  (max-width:600px) {
+    .filter{
+        display: none;
+    }
+}
