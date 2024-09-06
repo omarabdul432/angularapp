@@ -3,8 +3,10 @@
         <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-xxl-2 filter">
             <div>
                 <p class="fw-bold">FILTER BY</p>
-                <div class="mt-3 text-muted" *ngFor="let item of filter">
-                    <input type="checkbox"><span class="ms-2">{{item}}</span>
+                <div class="mt-2 text-muted" *ngFor="let item of filter">
+                    <ul class="list-group">
+                        <li class="list-group-item">{{item}}</li>
+                    </ul>
                 </div>
                
             </div>
@@ -13,8 +15,7 @@
         <div class="col-sm-8 col-md-10 col-lg-10 col-xl-10 col-xxl-10 d-flex flex-wrap">
             <div class="row gap-2 justify-content-center">
                 <div class=" col-sm-5 col-md-5 col-lg-4 col-xl-4 col-xxl-3 " *ngFor="let category of product">
-                    <div class="card border-0 text-center card_content">
-                  
+                    <div class="card border-0 text-center card_content ">
                             <img [src]="category.imageURL" width="100%">
                             <div class=" lh-1 mt-3">
                                 <p>{{category.price}}</p>
@@ -23,65 +24,22 @@
 
                             <div class="card_content_icon">
                                 <a class="border p-2 rounded-5 text-dark ms-2 bg-light"><i class="bi-search"></i></a>
-                                <a class="border p-2 rounded-5 text-dark ms-2 bg-light"><i class="bi-cart3"></i></a>
+                                <a class="border p-2 rounded-5 text-dark ms-2 bg-light" data-bs-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#exam" data-bs-placement="top" title="Add to cart"><i class="bi-cart3"></i></a>
+                                <!-- <div class="modal fade" id="exam" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="text-center">Product successfully added to cart</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
                                 <a class="border p-2 rounded-5 text-dark ms-2 bg-light"><i class="bi-heart"></i></a>
 
                             </div>
                     </div>
                 </div>
             </div>
-
-            <!-- @for (item of product; track $index) {
-              <div class="card">
-                <img [src]="item.imageURL" alt="">
-                <div>
-                    <p>{{item.price}}</p>
-                </div>
-              </div>
-            } -->
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <div class="container mt-5">
-    <div class="row ">
-        <div class="  col-lg-4 col-xl-3 col-xxl-3 filter">
-            <p><span><input type="checkbox" name="" id=""></span>Kids</p>
-        </div>
-        
-        <div class="row d-flex">
-                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-9 d-flex gap-3">
-
-                <div class="card" *ngFor="let category of product">
-                    <div class="card-body">
-                        <div class="">
-                            <img [src]="category.imageURL" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-body text-center lh-1">
-                            <p class="fs-5 fw-bold ">{{category.title}}</p>
-                            <p class="">$ {{category.price}}</p>
-                            <del class="text-muted">$ 500</del>
-                        </div>
-    
-                        <div class="text-center"></div>
-                        <div class="text-center">
-                            <button class="btn btn-danger ">Add to Cart</button>
-                            <button class="btn btn-warning ms-2">Detail</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->

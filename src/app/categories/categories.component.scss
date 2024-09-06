@@ -1,11 +1,19 @@
-.card{
+.row{
    .card_content{
     position: relative;
 
     &_icon{
         position: absolute;
         top: 70%;
-        right: 35%;
+        right: 30%;
+    }
+
+    &:hover{
+        cursor: pointer;
+        // &_icon a:hov{
+        //     cursor: pointer;
+        //     background-color: #D99C2B;
+        // }
     }
    }
 }

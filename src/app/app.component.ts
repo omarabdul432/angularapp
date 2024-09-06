@@ -4,6 +4,7 @@ import { Product } from './_models/product';
 import { HomeComponent } from "./home/home.component";
 import { FooterComponent } from "./footer/footer.component";
 import { AuthenticationService } from './_service/authentication.service';
+import { CartService } from './_service/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +15,15 @@ import { AuthenticationService } from './_service/authentication.service';
 })
 export class AppComponent {
   title = 'angularapp';
-
+  cart = '0'
   user: string | null = ''
-  constructor(private auth: AuthenticationService) {
+  constructor(private auth: AuthenticationService, private cartitem: CartService) {
     this.auth.user$.subscribe((res: any) => {
       this.user = res?.displayName
       console.log(this.user)
     })
   }
+
 
   logout() {
     this.auth.logout()

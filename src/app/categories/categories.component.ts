@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from '../_models/product';
+import { Product, Productcategory } from '../_models/product';
 import { CategoryService } from '../_service/category.service';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../_service/cart.service';
@@ -16,14 +16,19 @@ export class CategoriesComponent {
 
   filter = ['ceramics', 'polyster', 'white', 'Black']
 
-  product: Product[] = [{
+
+
+  product: Productcategory[] = [{
     id: '',
     price: '',
     imageURL: '',
-    title: ''
+    title: '',
+    category: ''
   }]
   constructor(private category: CategoryService, private cart: CartService, private router: Router) {
     this.product = this.category.getProducts()
+    console.log(this.product)
+
   }
 
   addtocart(item: any) {
@@ -31,6 +36,6 @@ export class CategoriesComponent {
     this.router.navigateByUrl('/cart')
   }
 
+  // filteredproducts = this.product.filter(p => p.category === 'polyster' && p.price > '200')
 
-  filteredProduct = this.product.filter(products => products.price < '500')
 }
