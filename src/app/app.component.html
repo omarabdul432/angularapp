@@ -2,10 +2,14 @@
   <nav class="navbar navbar-expand-lg">
 
     <div>
-      <a class="navbar-brand fw-bold fs-4">GlamourGrove</a>
+      <a class="navbar-brand fw-bold fs-4" routerLink="home">GlamourGrove</a>
     </div>
 
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" type="button">
+    <div class="text-center d-flex mb-0  ms-md-auto ">
+      <i class="bi bi-person-circle "></i>
+      <span class="ms-2 fw-bold">{{user}}</span>
+    </div>
+    <button class="navbar-toggler ms-2" data-bs-toggle="collapse" data-bs-target="#navbar" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -26,10 +30,7 @@
       <a><i class="bi bi-cart3 me-3 position-relative" routerLink="cart"><span class="badge rounded-pill bg-primary top-0">{{cart}}</span></i></a>
 
 
-      <div class="text-center d-flex mb-0  me-3">
-        <i class="bi bi-person-circle "></i>
-        <span class="ms-2 fw-bold">{{user}}</span>
-      </div>
+      
       @if(user){
       <div>
         <button class="btn btn-danger" (click)="logout()">Signout</button>
@@ -41,7 +42,7 @@
       </div>
       }
     </div>
-
+   
   </nav>
 </div>
 
